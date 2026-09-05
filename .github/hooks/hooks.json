@@ -1,0 +1,19 @@
+{
+  "$comment": "強制層（Enforcement）の例。AI に気をつけさせるのではなく、機械的に止める。イベント名は Copilot / Codex / Claude Code で共通。",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "$comment": "スキーマは Flyway のマイグレーションで管理する。既存ファイルの書き換えを止める",
+        "command": "block-if-path: backend/src/main/resources/db/migration/*"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "$comment": "編集のたびにテストを走らせ、CI を待たずに違反を止める",
+        "command": "cd backend && ./mvnw -q test"
+      }
+    ]
+  }
+}
