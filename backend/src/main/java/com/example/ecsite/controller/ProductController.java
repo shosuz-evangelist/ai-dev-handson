@@ -1,5 +1,6 @@
 package com.example.ecsite.controller;
 
+import com.example.ecsite.dto.ProductSearchResponse;
 import com.example.ecsite.entity.Product;
 import com.example.ecsite.service.ProductService;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,16 @@ public class ProductController {
     @GetMapping("")
     public List<Product> getAllProducts() {
         return productService.getAllProducts();
+    }
+
+    @GetMapping("/search")
+    public ProductSearchResponse search(
+            @RequestParam(required = false) String keyword,
+            @RequestParam(required = false) String category,
+            @RequestParam(defaultValue = "false") boolean inStockOnly,
+            @RequestParam(required = false) Integer page,
+            @RequestParam(required = false) Integer size) {
+        return new ProductSearchResponse(productService.search(keyword, category, inStockOnly, page, size));
     }
 
     @GetMapping("/{id}")
