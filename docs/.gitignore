@@ -1,6 +1,0 @@
-
-# Terraform (演習3では実行しない)
-terraform/
-.terraform/
-*.tfstate
-*.tfstate.backup
