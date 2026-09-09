@@ -1,7 +1,16 @@
 # AI 駆動開発ハンズオン（4 時間・初級）
 
 仕様駆動で EC バックエンドを作るハンズオンの教材リポジトリです。
-**環境構築はしません。** clone した初期状態から、そのまま本題に入れます。
+**環境構築はしません。** 初期状態から、そのまま本題に入れます。
+
+## はじめかた（受講者の方へ）
+
+1. GitHub にサインインします。
+2. このページの右上の **Fork** を押して、自分のアカウントにコピーします。
+   演習の後半で Issue に Copilot を割り当てるため、**自分のリポジトリである必要があります**。
+3. 自分の fork の **Code** から **Codespaces** を作ります（ブラウザだけで開けます）。
+   作れない場合は、HTTPS の URL を `git clone` して VS Code で開きます。
+4. `cd backend && ./mvnw -B test` を実行し、`Tests run: 5` が出れば準備完了です。
 
 ## 何が入っているか
 
@@ -10,7 +19,7 @@
 | `backend/` | Spring Boot の EC バックエンド（Java 21 / PostgreSQL 15 / Flyway） |
 | `.specify/` | Spec Kit 本体。規約は `.specify/memory/constitution.md` |
 | `.github/skills/speckit-*/` | Spec Kit のコマンド（Agent Skills 形式・10 個） |
-| `.github/hooks/hooks.json` | 強制層の例。スキーマの直接編集を止め、編集後にテストを走らせる |
+| `.github/hooks/hooks.json` | 強制層の例。スキーマの直接編集を止め、編集後にテストを実行する |
 | `AGENTS.md` | AI ツール共通の入口。規約へ 1 行で参照する |
 | `.github/spec/reference/` | 既存の設計資料（参考） |
 
@@ -72,4 +81,4 @@ Issue の担当者に Copilot を指定すると、cloud agent が実装して P
 - REST・複数形エンドポイント・DTO と Entity の分離
 - 顧客の `email` は一意、削除は論理削除、更新は PUT で全項目
 - スキーマの変更は Flyway のマイグレーションを**新規に追加**する（既存は書き換えない）
-- 受け入れ基準はテストに落とす。**テストが真**で、`spec.md` は再生成できる中間生成物
+- 受け入れ基準はテストとして書く。**テストが真**で、`spec.md` は再生成できる中間生成物

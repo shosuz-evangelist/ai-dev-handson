@@ -1,18 +1,23 @@
 {
-  "$comment": "強制層（Enforcement）の例。AI に気をつけさせるのではなく、機械的に止める。イベント名は Copilot / Codex / Claude Code で共通。",
+  "version": 1,
+  "$comment": "強制層（Enforcement）。AI に気をつけさせるのではなく、機械的に止める。preToolUse は exit 2 で拒否になる。入力は stdin に JSON で渡る（toolName / toolArgs）。",
   "hooks": {
-    "PreToolUse": [
+    "preToolUse": [
       {
-        "matcher": "Edit|Write",
+        "type": "command",
+        "matcher": "[Ee]dit|[Ww]rite|str_replace",
         "$comment": "スキーマは Flyway のマイグレーションで管理する。既存ファイルの書き換えを止める",
-        "command": "block-if-path: backend/src/main/resources/db/migration/*"
+        "bash": "grep -q 'db/migration' && { echo 'マイグレーションの既存ファイルは編集しません。新しいファイルを追加してください' >&2; exit 2; }; exit 0",
+        "timeoutSec": 15
       }
     ],
-    "PostToolUse": [
+    "postToolUse": [
       {
-        "matcher": "Edit|Write",
-        "$comment": "編集のたびにテストを走らせ、CI を待たずに違反を止める",
-        "command": "cd backend && ./mvnw -q test"
+        "type": "command",
+        "matcher": "[Ee]dit|[Ww]rite|str_replace",
+        "$comment": "編集のたびにテストを実行し、CI を待たずに違反を止める",
+        "bash": "cd backend && ./mvnw -q -B test",
+        "timeoutSec": 300
       }
     ]
   }
