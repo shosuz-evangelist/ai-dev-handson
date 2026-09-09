@@ -21,7 +21,6 @@
 | `.github/skills/speckit-*/` | Spec Kit のコマンド（Agent Skills 形式・10 個） |
 | `.github/hooks/hooks.json` | 強制層の例。スキーマの直接編集を止め、編集後にテストを実行する |
 | `AGENTS.md` | AI ツール共通の入口。規約へ 1 行で参照する |
-| `.github/spec/reference/` | 既存の設計資料（参考） |
 
 `products` と `customers` のテーブルは最初から用意してあります。
 **customers の API はまだありません。** それを作るのが演習1です。

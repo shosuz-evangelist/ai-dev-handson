@@ -12,7 +12,6 @@
 
 - `backend/` … Spring Boot の EC バックエンド（Java 21 / PostgreSQL 15 / Flyway）
 - `backend/src/main/resources/db/migration/` … スキーマ。**直接編集しない**（Hooks で止まります）
-- `.github/spec/reference/` … 既存の設計資料（参考）
 - `specs/` … Spec Kit が生成する spec / plan / tasks（作業後に生成されます）
 
 ## よく使うコマンド
