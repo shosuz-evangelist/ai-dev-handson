@@ -8,4 +8,5 @@
 - [x] T6 `CustomerController` を作る（登録・取得・一覧・更新・削除）
 - [x] T7 受け入れ基準をテストにする（サービス・コントローラ）
 
-※ `/speckit-taskstoissues` を使うと、この 1 行が 1 Issue になります。
+※ T7 のテストのタスクは、`/speckit-tasks` に「受け入れ基準のテストのタスクも作る」と指示したときに作られます（Spec Kit は指示しないとテストのタスクを作りません）。
+※ github 拡張の `/speckit-github-taskstoissues` を使うと、この 1 行が 1 Issue になります（題は `T001: …` の形で、実際の番号の振り方はこの例と違うことがあります）。

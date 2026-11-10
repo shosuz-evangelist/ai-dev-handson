@@ -6,4 +6,5 @@
 - [x] T4 `ProductController` に `GET /api/products/search` を足す
 - [x] T5 受け入れ基準をテストにする（サービス・コントローラ）
 
-※ `/speckit-taskstoissues` を使うと、この 1 行が 1 Issue になります。
+※ T5 のテストのタスクは、`/speckit-tasks` に「受け入れ基準のテストのタスクも作る」と指示したときに作られます。
+※ 演習2 では Issue 化を省きます。github 拡張は既にある Issue の題の T 番号で重複を判定するので、演習1 と T 番号が重なると Issue が作られません。
