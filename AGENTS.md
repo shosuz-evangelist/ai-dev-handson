@@ -12,7 +12,6 @@
 
 - `backend/` … Spring Boot の EC バックエンド（Java 21 / PostgreSQL 15 / Flyway）
 - `backend/src/main/resources/db/migration/` … スキーマ。**直接編集しない**（Hooks で止まります）
-- `.github/spec/reference/` … 既存の設計資料（参考）
 - `specs/` … Spec Kit が生成する spec / plan / tasks（作業後に生成されます）
 
 ## よく使うコマンド
@@ -26,5 +25,5 @@ cd backend
 ## 守ること
 
 - スキーマの変更は Flyway のマイグレーションを新規に追加する（既存ファイルは書き換えない）
-- 受け入れ基準はテストに落とす。テストが真であり、spec.md は再生成できる中間生成物
+- 受け入れ基準はテストとして書く。テストが真である（spec の持ち方は constitution.md の「テスト」を参照）
 - 依頼された範囲の外を勝手に直さない。気づいた点は最後に提案として分ける

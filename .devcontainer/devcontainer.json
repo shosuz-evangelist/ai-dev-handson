@@ -1,0 +1,25 @@
+{
+  "name": "AI 駆動開発ハンズオン（EC バックエンド）",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "installMaven": "true"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "vscjava.vscode-java-pack"
+      ]
+    }
+  },
+  "forwardPorts": [8080, 5432],
+  "postCreateCommand": "cd backend && ./mvnw -q -B test",
+  "remoteUser": "vscode"
+}
