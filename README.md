@@ -97,4 +97,4 @@ Issue の担当者に Copilot を指定すると、cloud agent が実装して P
 - REST・複数形エンドポイント・DTO と Entity の分離
 - 顧客の `email` は一意、削除は論理削除、更新は PUT で全項目
 - スキーマの変更は Flyway のマイグレーションを**新規に追加**する（既存は書き換えない）
-- 受け入れ基準はテストとして書く。**テストが真**（spec は機能の完成後に外す持ち方。constitution.md の「テスト」を参照）
+- 受け入れ基準はテストとして書く。**テストが真**（spec.md は改版して持ち続ける Living Spec。constitution.md の「テスト」を参照）
