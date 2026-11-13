@@ -10,8 +10,10 @@
    演習の後半で Issue に Copilot を割り当てるため、**自分のリポジトリである必要があります**。
 3. 自分の fork の **Code** から **Codespaces** を作ります（ブラウザだけで開けます）。
    作れない場合は、HTTPS の URL を `git clone` して VS Code で開きます。
+   手元で開く場合は、**JDK 21 以上**と **Python 3・PyYAML** を入れておきます（Spec Kit のスクリプトが Python 3 で拡張の登録簿とテンプレートを読みます）。
 4. 自分の fork の **Settings → General → Features** で **Issues** を有効にします（fork は既定で無効です）。
-5. `cd backend && ./mvnw -B test` を実行し、`Tests run: 5` が出れば準備完了です。
+5. `cd backend && ./mvnw -B test` を実行し、`Tests run: 5` が出ることを確かめます。
+6. `python3 -c "import yaml"` を実行し、何も出なければ準備完了です（Codespaces では作成時に入ります）。
 
 ## 何が入っているか
 
